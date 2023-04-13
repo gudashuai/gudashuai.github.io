@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title>Docker常用命令</title>
+      <link href="/2023/04/13/Docker_Learning/"/>
+      <url>/2023/04/13/Docker_Learning/</url>
+      
+        <content type="html"><![CDATA[<h3 id="Docker是怎么工作的"><a href="#Docker是怎么工作的" class="headerlink" title="Docker是怎么工作的"></a>Docker是怎么工作的</h3><p>Docker是一个Client-Server的结构的系统，守护进程运行在主机上，通过Socket从客户端访问DockerServer接收到C-S的指令。</p><h3 id="Docker常用命令"><a href="#Docker常用命令" class="headerlink" title="Docker常用命令"></a>Docker常用命令</h3><h4 id="帮助命令"><a href="#帮助命令" class="headerlink" title="帮助命令"></a>帮助命令</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">docker info #详细信息docker versiondocker --help<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><h4 id="镜像命令"><a href="#镜像命令" class="headerlink" title="镜像命令"></a>镜像命令</h4><p><code>docker images</code>查看镜像</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">#仓库源标签 创建时间大小REPOSITORY        TAG       IMAGE ID       CREATED         SIZExiaoyaliu&#x2F;alist   latest    16ffca9cc543   24 hours ago    51.1MB#可选项  -a, --all             Show all images (default hides intermediate images)  -f, --filter filter   Filter output based on conditions provided      --format string   Format output using a custom template:      --no-trunc        Don&#39;t truncate output  -q, --quiet           Only show image IDs<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p><code>docker search</code>搜索</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">docker search mysql --limit 5NAME             DESCRIPTION                                     STARS     OFFICIAL   AUTOMATEDmysql            MySQL is a widely used, open-source relation…   14033     [OK]             #可选项--filter&#x3D;STARS&#x3D;3000  #大于3000的stars<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre><p><code>docker pull</code> 下载镜像</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">docker pull mysql [:tag]docker pull mysqlUsing default tag: latestlatest: Pulling from library&#x2F;mysql72a69066d2fe: Pull complete  #分层下载93619dbc5b36: Pull complete 99da31dd6142: Pull complete 626033c43d70: Pull complete 37d5d7efb64e: Pull complete ac563158d721: Pull complete d2ba16033dad: Pull complete 688ba7d5c01a: Pull complete 00e060b6d11d: Pull complete 1c04857f594f: Pull complete 4d7cfa90e6ea: Pull complete e0431212d27d: Pull complete Digest: sha256:e9027fe4d91c0153429607251656806cc784e914937271037f7738bd5b8e7709 #签名Status: Downloaded newer image for mysql:latestdocker.io&#x2F;library&#x2F;mysql:latest #真实地址<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p><code>docker rm</code>删除</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">docker rmi id<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> Docker </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Docker </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>浅度学习</title>
+      <link href="/2023/04/13/DeepLearning/"/>
+      <url>/2023/04/13/DeepLearning/</url>
+      
+        <content type="html"><![CDATA[<h3 id="logistic回归"><a href="#logistic回归" class="headerlink" title="logistic回归"></a>logistic回归</h3><h4 id="二分分类"><a href="#二分分类" class="headerlink" title="二分分类"></a>二分分类</h4><p>X输入m * n的矩阵，Y输出1*  m的矩阵</p><h4 id="logistic回归模型"><a href="#logistic回归模型" class="headerlink" title="logistic回归模型"></a>logistic回归模型</h4><p>$$<br>y=(w^Tx + b) \<br>G(Z) = \frac{1}{1+e^{-z}}<br>$$</p><blockquote><p>z足够大函数结果接近1，小则为0    </p></blockquote><h4 id="梯度下降法"><a href="#梯度下降法" class="headerlink" title="梯度下降法"></a>梯度下降法</h4><p>$$<br>w:=w-α(\frac{dJ(w)}{dw})<br>$$</p><img src="C:\Users\Gu\AppData\Roaming\Typora\typora-user-images\image-20230413180441218.png" style="zoom:70%;" />]]></content>
+      
+      
+      <categories>
+          
+          <category> DeepLearning </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> DeepLearning </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Linux常用命令</title>
+      <link href="/2023/04/11/Linux_Command/"/>
+      <url>/2023/04/11/Linux_Command/</url>
+      
+        <content type="html"><![CDATA[<h2 id="Linux常用命令"><a href="#Linux常用命令" class="headerlink" title="Linux常用命令"></a>Linux常用命令</h2><h3 id="重要的热键"><a href="#重要的热键" class="headerlink" title="重要的热键"></a>重要的热键</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">ca&#x2F;&#x2F;按两下Tab可以显示可用命令caller     capsh      captoinfo  case       cat        catman<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><h3 id="Linux的文件权限与目录"><a href="#Linux的文件权限与目录" class="headerlink" title="Linux的文件权限与目录"></a>Linux的文件权限与目录</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">lsDocker  boot  etc   init  lib32  libx32      media  opt   root  sbin  srv  tmp  ls -al &#x2F;&#x2F;切换root用户,显示全部内容total 2012drwxr-xr-x  20 root root    4096 Apr 10 19:09-rwxrwxrwx 1  root root 1980216 Apr  5 01:07 init<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><ul><li>第一个字符d代表目录，—代表文件，l代表链接文件</li><li>第一个字符b：随机读写设备，c：串行设备</li><li>【rwx】可读，可写，执行，位置不会改变</li><li>1组：文件拥有者具备的权限</li><li>2组：加入此用户组账号的权限</li><li>3组：非本人且未加入用户组的其他账号权限</li></ul><h3 id="修改文件属性与权限"><a href="#修改文件属性与权限" class="headerlink" title="修改文件属性与权限"></a>修改文件属性与权限</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"> chmod 744 testing touch testing&#x2F;testing chmod 600 testing&#x2F;testing ls -ald testing testing&#x2F;testingdrwxr--r-- 2 root root 20 Apr 11 14:51 testing-rw------- 1 root root  0 Apr 11 14:51 testing&#x2F;testing<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h3 id="目录与路径"><a href="#目录与路径" class="headerlink" title="目录与路径"></a>目录与路径</h3><h4 id="cd切换目录命令"><a href="#cd切换目录命令" class="headerlink" title="cd切换目录命令"></a>cd切换目录命令</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"> #cd 切换目录cd &#x2F;homecd ~ #cd ~ 表示回家的目录[root@jztye1o6yzly8s9o ~]# [root@jztye1o6yzly8s9o ~]# #cd 啥也不写也是回家  [root@jztye1o6yzly8s9o ~] cd .. # cd ..表示回到上层目录[root@jztye1o6yzly8s9o &#x2F;] cd &#x2F;var&#x2F;spool[root@jztye1o6yzly8s9o spool]# # cd &#x2F;var&#x2F;spool 绝对路径目录<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h4 id="pwd–print-working-dir-显示目前所在目录"><a href="#pwd–print-working-dir-显示目前所在目录" class="headerlink" title="pwd–print working dir 显示目前所在目录"></a>pwd–print working dir 显示目前所在目录</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">pwd [-P] -P 显示真正的目录[root@jztye1o6yzly8s9o mail] pwd&#x2F;var&#x2F;spool&#x2F;mail<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><h4 id="mkdir-创建新目录"><a href="#mkdir-创建新目录" class="headerlink" title="mkdir 创建新目录"></a>mkdir 创建新目录</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">mkdir [-mp]#-m 设置文件权限#-p 递归创建所需要的目录 mkdir test  lstest  testing#不加-p不成功 mkdir test1&#x2F;test2&#x2F;test3mkdir: cannot create directory ‘test1&#x2F;test2&#x2F;test3’: No such file or directory mkdir -p test1&#x2F;test2&#x2F;test3#-m设置权限 mkdir -m 711 test2 ls -ld test*drwxr-xr-x 2 root root  6 Apr 11 18:55 testdrwxr-xr-x 3 root root 18 Apr 11 18:56 test1drwx--x--x 2 root root  6 Apr 11 18:58 test2drwxr--r-- 2 root root 20 Apr 11 14:51 testing<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h4 id="rmdir-删除空的目录"><a href="#rmdir-删除空的目录" class="headerlink" title="rmdir 删除空的目录"></a>rmdir 删除空的目录</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">rmdir [-p] 目录名称-p连同上层目录也删除 ls -ld test*drwxr-xr-x 2 root root  6 Apr 11 18:55 testdrwxr-xr-x 3 root root 18 Apr 11 18:56 test1drwx--x--x 2 root root  6 Apr 11 18:58 test2drwxr--r-- 2 root root 20 Apr 11 14:51 testing#删除文件夹 rmdir test#有内容删不掉 rmdir test1rmdir: failed to remove ‘test1’: Directory not empty#加上参数可以删，类似mkdirrmdir -p test1&#x2F;test2&#x2F;test3 ls -ld test*drwx--x--x 2 root root  6 Apr 11 18:58 test2drwxr--r-- 2 root root 20 Apr 11 14:51 testing<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h4 id="执行文件路径的变量：-PATH"><a href="#执行文件路径的变量：-PATH" class="headerlink" title="执行文件路径的变量：$PATH"></a>执行文件路径的变量：$PATH</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">echo $PATH#显示出目前的PATH&#x2F;usr&#x2F;local&#x2F;sbin:&#x2F;usr&#x2F;local&#x2F;bin:&#x2F;usr&#x2F;sbin:&#x2F;usr&#x2F;bin:&#x2F;root&#x2F;bin<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><h3 id="文件与目录管理"><a href="#文件与目录管理" class="headerlink" title="文件与目录管理"></a>文件与目录管理</h3><h4 id="文件与目录的查看"><a href="#文件与目录的查看" class="headerlink" title="文件与目录的查看"></a>文件与目录的查看</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">ls #默认显示非隐藏的文件名#常用的ls -a #全部，连同隐藏ls -d #目录ls -l #详细信息<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre><h4 id="复制、删除与移动-cp-rm-mv"><a href="#复制、删除与移动-cp-rm-mv" class="headerlink" title="复制、删除与移动 cp rm mv"></a>复制、删除与移动 cp rm mv</h4><blockquote><p>cp复制</p></blockquote><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">cp [-aipr] 源文件 目标文件cp -a #复制全部属性 cp -i #目标文件存在时询问是否覆盖cp -p #复制属性，不适用默认属性cp -r #递归复制cp ~&#x2F;.bashrc &#x2F;tmp&#x2F;bashrc#覆盖前询问cp -i ~&#x2F;.bashrc &#x2F;tmp&#x2F;bashrccp: overwrite ‘&#x2F;tmp&#x2F;bashrc’? n#复制到当前目录 加. cp &#x2F;var&#x2F;log&#x2F;wtmp .#不加选项权限可能会变ls -l &#x2F;var&#x2F;log&#x2F;wtmp wtmp-rw-rw-r--. 1 root utmp 33408 Apr 13 08:45 &#x2F;var&#x2F;log&#x2F;wtmp-rw-r--r--  1 root root 33408 Apr 13 09:27 wtmp#-a复制文件的所有特性cp -a &#x2F;var&#x2F;log&#x2F;wtmp wtmp_2 ls -l &#x2F;var&#x2F;log&#x2F;wtmp wtmp_2-rw-rw-r--. 1 root utmp 33408 Apr 13 08:45 &#x2F;var&#x2F;log&#x2F;wtmp-rw-rw-r--. 1 root utmp 33408 Apr 13 08:45 wtmp_2#复制文件目录加-r,文件权限可能改变cp -r &#x2F;var &#x2F;tmp#将复制的bashrc建立一个符号链接文件（快捷方式）cp -s bashrc bashrc_slinkcp -l bashrc bashrc_link 硬链接ls -l bashrc*-rw-r--r-- 2 root root 234 Apr 13 09:24 bashrc-rw-r--r-- 2 root root 234 Apr 13 09:24 bashrc_link  lrwxrwxrwx 1 root root   6 Apr 13 10:02 bashrc_slink -&gt; bashrc <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><blockquote><p>rm删除文件或目录</p></blockquote><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">rm [-fir] 文件或目录-f:force,-i: 询问-r: 递归删除，常用于目录（危险）#询问删除rm -i bashrcrm: remove regular file ‘bashrc’? y#通配符删除rm -i bashrc*rm: remove regular file ‘bashrc_link’? yrm: remove symbolic link ‘bashrc_slink’? y#递归删除rm -r &#x2F;tmp&#x2F;etcrm: cannot remove ‘&#x2F;tmp&#x2F;etc’: No such file or directory#删除开头为-的文件touch .&#x2F;-aaa-#系统误以为这是选项rm -aaa-rm: invalid option -- &#39;a&#39;Try &#39;rm .&#x2F;-aaa-&#39; to remove the file ‘-aaa-’.Try &#39;rm --help&#39; for more information.#加个 .&#x2F;rm .&#x2F;-aaa-rm: remove regular empty file ‘.&#x2F;-aaa-’? y<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> Linux </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Linux </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+  
+  
+</search>
