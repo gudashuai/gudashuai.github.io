@@ -324,8 +324,7 @@
 <p>z足够大函数结果接近1，小则为0    </p>
 </blockquote>
 <h4 id="梯度下降法"><a href="#梯度下降法" class="headerlink" title="梯度下降法"></a>梯度下降法</h4><p>$$<br>w:=w-α(\frac{dJ(w)}{dw})<br>$$</p>
-<img src="D:\HexoBlog\gudashuai_blog\source\_posts\梯度下降法.png" alt="梯度下降法" style="zoom:80%;" />
-
+<p><img src="/2023/04/13/DeepLearning/Gradient_Descent.png" alt="Gradient_Descent"></p>
 <h5 id="m个样本的梯度下降"><a href="#m个样本的梯度下降" class="headerlink" title="m个样本的梯度下降"></a>m个样本的梯度下降</h5><p>$$<br>J(w,b)=\frac{1}{m}\sum_{i=1}^{m} L(a^{(i)},y^{(i)})\<br>a^{i}=y^{i}=G(z^{(i)})=G(w^tx^{(i)}+b)<br>$$</p>
 <h3 id="向量化"><a href="#向量化" class="headerlink" title="向量化"></a>向量化</h3><p>$$<br>z=(w^Tx + b)<br>$$</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python">#能用函数尽量不使用for循环
