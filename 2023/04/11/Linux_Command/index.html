@@ -286,21 +286,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-04-13
+                    2023-04-15
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.1k
+                    1.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    5 分
+                    6 分
                 </div>
                 
 
@@ -408,10 +408,7 @@ ls -a #全部，连同隐藏
 ls -d #目录
 ls -l #详细信息<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h4 id="复制、删除与移动-cp-rm-mv"><a href="#复制、删除与移动-cp-rm-mv" class="headerlink" title="复制、删除与移动 cp rm mv"></a>复制、删除与移动 cp rm mv</h4><blockquote>
-<p>cp复制</p>
-</blockquote>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">cp [-aipr] 源文件 目标文件
+<h4 id="复制、删除与移动-cp-rm-mv"><a href="#复制、删除与移动-cp-rm-mv" class="headerlink" title="复制、删除与移动 cp rm mv"></a>复制、删除与移动 cp rm mv</h4><h5 id="cp复制"><a href="#cp复制" class="headerlink" title="cp复制"></a>cp复制</h5><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">cp [-aipr] 源文件 目标文件
 cp -a #复制全部属性 
 cp -i #目标文件存在时询问是否覆盖
 cp -p #复制属性，不适用默认属性
@@ -450,10 +447,7 @@ ls -l bashrc*
 lrwxrwxrwx 1 root root   6 Apr 13 10:02 bashrc_slink -&gt; bashrc 
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<blockquote>
-<p>rm删除文件或目录</p>
-</blockquote>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">rm [-fir] 文件或目录
+<h5 id="rm删除文件或目录"><a href="#rm删除文件或目录" class="headerlink" title="rm删除文件或目录"></a>rm删除文件或目录</h5><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">rm [-fir] 文件或目录
 -f:force,
 -i: 询问
 -r: 递归删除，常用于目录（危险）
@@ -481,6 +475,47 @@ Try &#39;rm --help&#39; for more information.
 rm .&#x2F;-aaa-
 rm: remove regular empty file ‘.&#x2F;-aaa-’? y
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h5 id="获取路径的文件名与目录名称"><a href="#获取路径的文件名与目录名称" class="headerlink" title="获取路径的文件名与目录名称"></a>获取路径的文件名与目录名称</h5><pre class="line-numbers language-she" data-language="she"><code class="language-she">basename &#x2F;etc&#x2F;sysconfig&#x2F;network
+network
+dirname &#x2F;etc&#x2F;sysconfig&#x2F;network
+&#x2F;etc&#x2F;sysconfig&#x2F;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="文件内容查看"><a href="#文件内容查看" class="headerlink" title="文件内容查看"></a>文件内容查看</h4><h5 id="直接查看文件内容"><a href="#直接查看文件内容" class="headerlink" title="直接查看文件内容"></a>直接查看文件内容</h5><blockquote>
+<p><code>cat</code>(concatenate)</p>
+</blockquote>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">cat [-nA]
+[root@jztye1o6yzly8s9o etc]# cat issue
+\S
+Kernel \r on an \m
+
+# -n显示行号
+[root@jztye1o6yzly8s9o etc]# cat -n issue
+     1	\S
+     2	Kernel \r on an \m
+     3	
+#-A 完整显示，包含特殊字符
+[root@jztye1o6yzly8s9o etc]# cat -A man_db.conf
+
+MANDATORY_MANPATH^I^I^I&#x2F;usr&#x2F;man$
+MANDATORY_MANPATH^I^I^I&#x2F;usr&#x2F;share&#x2F;man$
+MANDATORY_MANPATH^I^I^I&#x2F;usr&#x2F;local&#x2F;share&#x2F;man$<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p><code>tac</code>反向显示内容</p>
+</blockquote>
+<h5 id="可翻页查看"><a href="#可翻页查看" class="headerlink" title="可翻页查看"></a>可翻页查看</h5><blockquote>
+<p><code>more</code>命令,一页一页翻</p>
+</blockquote>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">more man_db.conf
+content...
+--More--(26%)--等待操作
+空格:向下翻页
+enter:向下一行
+&#x2F;string: 查找string这个关键词
+:f    	显示文件名以及行数
+q		离开more，不显示内容
+b或者CTRL+b 往回翻页<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
                 
@@ -880,7 +915,7 @@ rm: remove regular empty file ‘.&#x2F;-aaa-’? y
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">2k</span>
+                        class="white-color">2.2k</span>
             
             
             
