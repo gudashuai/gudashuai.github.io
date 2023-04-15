@@ -286,21 +286,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-04-13
+                    2023-04-15
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    270
+                    636
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 
@@ -367,6 +367,56 @@ docker.io&#x2F;library&#x2F;mysql:latest #真实地址
 
 <p><code>docker rm</code>删除</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">docker rmi id<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h4 id="容器命令"><a href="#容器命令" class="headerlink" title="容器命令"></a>容器命令</h4><h5 id="有了镜像才可以进入容器"><a href="#有了镜像才可以进入容器" class="headerlink" title="有了镜像才可以进入容器"></a>有了镜像才可以进入容器</h5><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">docker pull centos<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h5 id="新建容器并启动"><a href="#新建容器并启动" class="headerlink" title="新建容器并启动"></a>新建容器并启动</h5><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">docker run [参数] image
+
+#参数说明
+--name&#x3D;&quot;name&quot;	#容器名字 区分容器
+-d 				#后台方式运行
+-it				#使用交互方式运行，进入查看内容
+-p				#指定容器端口 -p 8080:8080
+	-p ip:主机端口:容器端口
+	-p 主机端口:容器端口(常用)
+	-p 容器端口
+	容器端口
+-p				随机指定端口
+
+#测试
+[root@jztye1o6yzly8s9o ~] # docker run -it centos &#x2F;bin&#x2F;bash
+[root@a0af60b9f295 &#x2F;] ls  #进入centos
+bin  dev  etc  home  lib  lib64  lost+found  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var
+[root@a0af60b9f295 &#x2F;] exit  退出命令<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h5 id="列出所有的运行容器"><a href="#列出所有的运行容器" class="headerlink" title="列出所有的运行容器"></a>列出所有的运行容器</h5><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">docker ps 
+-a 		#列出正在运行+历史运行的容器
+-n&#x3D;? 	#显示指定数值的容器
+-q		#显示编号<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h5 id="退出容器"><a href="#退出容器" class="headerlink" title="退出容器"></a>退出容器</h5><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">exit	#退出停止
+CTRL+P+Q	#退出不停止<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h5 id="删除容器"><a href="#删除容器" class="headerlink" title="删除容器"></a>删除容器</h5><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">docker rm id					#不能删除运行的容器
+docker rm -f $(docker ps -aq) #删除全部容器
+docker ps -a -q|xargs docker rm<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h5 id="启动和停止容器的操作"><a href="#启动和停止容器的操作" class="headerlink" title="启动和停止容器的操作"></a>启动和停止容器的操作</h5><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">docker start id
+docker restart id
+docker stop id
+docker kill id	#强制停止<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="常用其他命令"><a href="#常用其他命令" class="headerlink" title="常用其他命令"></a>常用其他命令</h3><h4 id="后台启动容器"><a href="#后台启动容器" class="headerlink" title="后台启动容器"></a>后台启动容器</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">docker run -d centos
+#docker ps 发现容器并没有在运行
+
+#docker容器使用后台运行，就必须要有一个前台进程，dokcer发现没有应用直接停止
+#nginx启动后没有提供服务就会立刻停止<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="查看日志"><a href="#查看日志" class="headerlink" title="查看日志"></a>查看日志</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">docker logs -f -t --tail<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
+
 
 
                 
@@ -767,7 +817,7 @@ docker.io&#x2F;library&#x2F;mysql:latest #真实地址
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">1.5k</span>
+                        class="white-color">2k</span>
             
             
             
