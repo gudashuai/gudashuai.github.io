@@ -286,21 +286,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-04-15
+                    2023-04-17
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    636
+                    1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    4 分
                 </div>
                 
 
@@ -412,12 +412,62 @@ docker kill id	#强制停止<span aria-hidden="true" class="line-numbers-rows"><
 #docker容器使用后台运行，就必须要有一个前台进程，dokcer发现没有应用直接停止
 #nginx启动后没有提供服务就会立刻停止<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h4 id="查看日志"><a href="#查看日志" class="headerlink" title="查看日志"></a>查看日志</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">docker logs -f -t --tail<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h4 id="查看日志"><a href="#查看日志" class="headerlink" title="查看日志"></a>查看日志</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">docker logs -f -t --tail 容器
 
+-tf			#显示日志
+--tail number #显示日志条数
 
+docker logs -tf --tail 3 xiaoya
+#2023-04-15T22:03:28.681644344Z INFO[2023-04-16 06:03:28] success load storage: [&#x2F;电影&#x2F;豆瓣 top 1000部], driver: [Alias] 
+#2023-04-15T22:03:28.688507170Z INFO[2023-04-16 06:03:28] success load storage: [&#x2F;电影&#x2F;人人影视电影合集], driver: [Alias] 
+#2023-04-15T22:03:28.694140077Z INFO[2023-04-16 06:03:28] success load storage: [&#x2F;??v.0412.2024], driver: [AList V3]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
+<h4 id="查看容器中进程信息"><a href="#查看容器中进程信息" class="headerlink" title="查看容器中进程信息"></a>查看容器中进程信息</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">docker top xiaoya
 
+UID                 PID                 PPID                C                   STIME         
+root                29519               29499               0                   06:00<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
+<h4 id="查看镜像元数据"><a href="#查看镜像元数据" class="headerlink" title="查看镜像元数据"></a>查看镜像元数据</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">docker inspect 容器id<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h4 id="进入正在运行的容器"><a href="#进入正在运行的容器" class="headerlink" title="进入正在运行的容器"></a>进入正在运行的容器</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">#通常容器后台运行，需要进入容器修改配置
+#第一种
+docker exec -it 容器id bashShell
+#第二种
+docker attach 容器id  #进入正在执行的终端，不会产生新进程<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="从容器内拷贝文件到主机上"><a href="#从容器内拷贝文件到主机上" class="headerlink" title="从容器内拷贝文件到主机上"></a>从容器内拷贝文件到主机上</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">docker cp 容器id:路径
+docker cp xiaoya:&#x2F;token ~
+#Successfully copied 3.072kB to &#x2F;root
+ls
+#bt-mysql-install.log  bt-pure-ftpd.log  mysql.sh  off_install.sh  token
+
+#拷贝是个手动过程，未来可以使用卷 -v 实现自动同步<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="作业练习"><a href="#作业练习" class="headerlink" title="作业练习"></a>作业练习</h3><blockquote>
+<p>部署Ningx</p>
+</blockquote>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">#搜索镜像 search
+#下载镜像 pull
+#运行测试
+#-d后台运行
+ docker run -d --name nginx01 -p 2233:80 nginx
+#进入容器
+docker exec -it nginx01 &#x2F;bin&#x2F;bash
+root@92894e997b40:&#x2F;# whereis nginx
+nginx: &#x2F;usr&#x2F;sbin&#x2F;nginx &#x2F;usr&#x2F;lib&#x2F;nginx &#x2F;etc&#x2F;nginx &#x2F;usr&#x2F;share&#x2F;nginx<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>部署Tomcat</p>
+</blockquote>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">docker pull tomcat
+#进入容器
+docker run   -d -p 2233:8080 --name tomcat01 tomcat
+#linux命令少了，没有webapps，把所有不必要的镜像都删除
+#保证可运行<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>部署ES+kibana(不知道干嘛的，先不写了)</p>
+</blockquote>
 
                 
             </div>
@@ -817,7 +867,7 @@ docker kill id	#强制停止<span aria-hidden="true" class="line-numbers-rows"><
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">2.2k</span>
+                        class="white-color">3.1k</span>
             
             
             

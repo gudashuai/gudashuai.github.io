@@ -286,21 +286,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-04-15
+                    2023-04-17
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.3k
+                    1.7k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    6 分
+                    8 分
                 </div>
                 
 
@@ -505,7 +505,7 @@ MANDATORY_MANPATH^I^I^I&#x2F;usr&#x2F;local&#x2F;share&#x2F;man$<span aria-hidde
 <p><code>tac</code>反向显示内容</p>
 </blockquote>
 <h5 id="可翻页查看"><a href="#可翻页查看" class="headerlink" title="可翻页查看"></a>可翻页查看</h5><blockquote>
-<p><code>more</code>命令,一页一页翻</p>
+<p><code>more</code>命令</p>
 </blockquote>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">more man_db.conf
 content...
@@ -516,6 +516,51 @@ enter:向下一行
 :f    	显示文件名以及行数
 q		离开more，不显示内容
 b或者CTRL+b 往回翻页<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p><code>less</code>命令可以前后查看</p>
+</blockquote>
+<h4 id="数据截取"><a href="#数据截取" class="headerlink" title="数据截取"></a>数据截取</h4><h5 id="head取出前几行"><a href="#head取出前几行" class="headerlink" title="head取出前几行"></a><code>head</code>取出前几行</h5><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">head [-n number] 文件
+head -n 5 &#x2F;etc&#x2F;man_db.conf
+# 
+#
+# This file is used by the man-db package to configure the man and cat paths.
+# It is also used to provide a manpath for those without one by examining
+# their PATH environment variable. For details see the manpath(5) man page.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h5 id="tail取出后几行"><a href="#tail取出后几行" class="headerlink" title="tail取出后几行"></a><code>tail</code>取出后几行</h5><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">tail [-n number] 文件
+-f 持续检测刷新文件内容
+#列出100条以后的内容
+tail -n +100 &#x2F;etc&#x2F;man_db.conf
+tail -f &#x2F;var&#x2F;log&#x2F;message<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h5 id="od读取非纯文本文件"><a href="#od读取非纯文本文件" class="headerlink" title="od读取非纯文本文件"></a><code>od</code>读取非纯文本文件</h5><h5 id><a href="#" class="headerlink" title></a></h5><h4 id="修改文件时间或创建新文件touch"><a href="#修改文件时间或创建新文件touch" class="headerlink" title="修改文件时间或创建新文件touch"></a>修改文件时间或创建新文件<code>touch</code></h4><h5 id="时间的定义"><a href="#时间的定义" class="headerlink" title="时间的定义"></a>时间的定义</h5><ul>
+<li>mtime, modification time:内容修改时间</li>
+<li>ctime, status time:权限和属性修改时间</li>
+<li>atime, accesstime:读取时间</li>
+</ul>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">touch [-acdmt] 文件
+
+#建立空文件并观察时间
+touch testtouch
+[root@jztye1o6yzly8s9o tmp] ls -l testtouch
+-rw-r--r-- 1 root root 0 Apr 17 20:00 testtouch
+
+#复制全部属性，检查日期
+cp -a ~&#x2F;.bashrc bashrc
+[root@jztye1o6yzly8s9o tmp]# date;ll bashrc;ll --time&#x3D;atime bashrc;ll --time&#x3D;ctime bashrc
+Mon Apr 17 20:15:14 CST 2023
+-rw-r--r-- 1 root root 234 Apr 12 21:21 bashrc
+-rw-r--r-- 1 root root 234 Apr 17 17:37 bashrc
+-rw-r--r-- 1 root root 234 Apr 17 20:14 bashrc
+
+#日期修改为2天前
+touch -d &quot;2 days ago&quot; bashrc
+[root@jztye1o6yzly8s9o tmp]# date;ll bashrc;ll --time&#x3D;atime bashrc;ll --time&#x3D;ctime bashrc
+Mon Apr 17 20:19:53 CST 2023
+-rw-r--r-- 1 root root 234 Apr 15 20:19 bashrc
+-rw-r--r-- 1 root root 234 Apr 15 20:19 bashrc
+-rw-r--r-- 1 root root 234 Apr 17 20:19 bashrc #ctime并未改变<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
                 
@@ -915,7 +960,7 @@ b或者CTRL+b 往回翻页<span aria-hidden="true" class="line-numbers-rows"><sp
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">2.2k</span>
+                        class="white-color">3.1k</span>
             
             
             
